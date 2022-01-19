@@ -1,14 +1,23 @@
-import React from 'react';
+import React from "react";
 
-export default function TextInfo({requestData}) {
+export default function TextInfo({ requestData }) {
   return (
     <>
       <p className="info__text">
         <span>Home page: </span>
-        <a href={requestData.homepage} className="info__home-page-link">
-          {requestData.homepage}
-        </a>
-        {requestData.homepage || "no information found"}
+
+        {requestData.homepage ? (
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={requestData.homepage}
+            className="info__home-page-link"
+          >
+            {requestData.homepage}
+          </a>
+        ) : (
+          <span style={{ fontWeight: "normal" }}>no information found</span>
+        )}
       </p>
       <p className="info__text">
         <span>Summary: </span>

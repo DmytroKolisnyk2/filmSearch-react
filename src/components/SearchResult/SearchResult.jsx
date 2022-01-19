@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import {movies} from '../../services/routesPath.json'
 
 import NoImgPoster from "../../images/no-poster.png";
 import addTippy from "../../plugins/tippy";
@@ -11,7 +12,7 @@ export default function SearchResult({ requestData }) {
     requestData.length > 0 && (
       <div className="search-result__card-container">
         {requestData.map((item) => (
-          <Link to={`${item.id}/`} key={item.id} height="500" className="card">
+          <Link to={`${movies}/${item.id}/`} key={item.id} height="500" className="card">
             <div className="card__img-wrapper">
               {item.poster_path ? (
                 <img

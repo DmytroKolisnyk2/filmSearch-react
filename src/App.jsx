@@ -4,6 +4,8 @@ import routesPath from "./services/routesPath.json";
 
 import Home from "./pages/Home/Home";
 import MoviesResult from "./pages/MoviesResult/MoviesResult";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
+import PlayingNow from "./components/PlayingNow/PlayingNow";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
@@ -39,6 +41,8 @@ const App = () => {
           <Route path={routesPath.home} element={<Home />} />
           <Route path={routesPath.movies} element={<MoviesResult inputValue={findMovieInput} />} />
           <Route path={routesPath.movieDetail} element={<MovieDetails />} />
+          <Route path={routesPath.coming} element={<ComingSoon />} />
+          <Route path={routesPath.nowPlaying} element={<PlayingNow />} />
         </Routes>
       </main>
     </>

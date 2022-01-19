@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { popularRequest } from "../../services/movieAPI";
 import "./Aside.scss";
-import TopRatedList from "./TopRatedList/TopRatedList";
 
+import TopRatedList from "./TopRatedList/TopRatedList";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import ControlsList from "./ControlsList/ControlsList";
 
@@ -25,7 +25,7 @@ export default function Aside({ showBar, onClick }) {
   return (
     <aside className={showBar ? "bar bar--open" : "bar"}>
       <h2 className="bar__controls-headline bar__headline">Free movie</h2>
-      <ControlsList />
+      <ControlsList onClick={onClick} />
 
       <h2 className="bar__movies-headline bar__headline">Top movies</h2>
       {error && <h2 className="bar__error">{error}</h2>}

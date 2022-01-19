@@ -25,7 +25,10 @@ export default function MovieDetails() {
 
     similarRequest(filmId).then(({ data }) => data.results.length && setSimilar(data.results));
 
-    videoRequest(filmId).then(({ data }) => setVideo(data.results[0]?.key));
+    videoRequest(filmId).then(({ data }) => {
+      setVideo(data.results[0]?.key);
+    console.log(data);
+    });
 
     pageRequest(filmId)
       .then(({ data }) => {

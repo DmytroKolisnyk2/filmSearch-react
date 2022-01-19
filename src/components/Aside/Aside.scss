@@ -92,7 +92,7 @@
   justify-content: space-between;
   padding: 7px;
   transition: $linear-small;
-  &:hover {
+  &--active {
     background-color: var(--headline-bg);
     & .controls__link {
       background-color: var(--headline-bg);

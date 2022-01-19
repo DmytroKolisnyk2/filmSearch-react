@@ -1,5 +1,9 @@
 {
   "home": "/",
   "movies": "/find",
-  "movieDetail": "/find/:filmId"
+  "movieDetail": "/find/:filmId",
+  "coming": "/upcoming",
+  "nowPlaying": "/now-playing",
+  "liked":"/liked",
+  "watchLater":"/watch-later"
 }
