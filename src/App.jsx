@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import routesPath from "./services/routesPath.json";
 
 import Home from "./pages/Home/Home";
+import MoviesResult from "./pages/MoviesResult/MoviesResult";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
@@ -14,20 +15,29 @@ import "tippy.js/themes/light-border.css";
 import "tippy.js/animations/shift-away.css";
 
 const App = () => {
+  const [findMovieInput, setFindMovieInput] = useState("");
   const [showBar, setShowBar] = useState(false);
+  
   const toggleShowBar = () => {
     setShowBar(!showBar);
   };
+
   return (
     <>
       <Aside onClick={toggleShowBar} showBar={showBar} />
       <div onClick={toggleShowBar} className="aside__overlay"></div>
 
       <main className="main">
-        <Header showBar={showBar} toggleShowBar={toggleShowBar} />
+        <Header
+          setFindMovieInput={setFindMovieInput}
+          findMovieInput={findMovieInput}
+          showBar={showBar}
+          toggleShowBar={toggleShowBar}
+        />
 
         <Routes>
           <Route path={routesPath.home} element={<Home />} />
+          <Route path={routesPath.movies} element={<MoviesResult inputValue={findMovieInput} />} />
           <Route path={routesPath.movieDetail} element={<MovieDetails />} />
         </Routes>
       </main>

@@ -12,7 +12,7 @@ export default function TopRatedList({ filmsData, onClick }) {
             <div className="best-movies__img-wrapper">
               {item.poster_path ? (
                 <img
-                  alt=""
+                  alt={item.title}
                   width="350"
                   height="400"
                   className="card__img"

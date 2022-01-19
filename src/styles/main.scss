@@ -28,3 +28,10 @@ main,footer,html,body,header{
   color: var(--text-color-dark);
   font-weight: 600;
 }
+.main__error{
+  text-align: center;
+  margin-top: 10px;
+  color: tomato;
+  font-weight: 600;
+  font-size: 26px;
+}

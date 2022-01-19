@@ -36,7 +36,7 @@ export default function SimilarFilms({ similarList, NoImgPoster }) {
                 <div className="card__img-wrapper">
                   {item.poster_path ? (
                     <img
-                      alt={item.original_title}
+                      alt={item.title}
                       width="350"
                       height="400"
                       className="card__img"

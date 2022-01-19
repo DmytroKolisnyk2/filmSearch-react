@@ -17,7 +17,7 @@ export default function MovieBackdrop({ requestData }) {
           <div className="background__img-wrapper">
             {requestData.poster_path ? (
               <img
-                alt={requestData.original_title}
+                alt={requestData.title}
                 width="350"
                 height="400"
                 className="background__img"
