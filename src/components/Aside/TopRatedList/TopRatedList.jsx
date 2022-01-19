@@ -3,15 +3,16 @@ import poster from "../../../images/no-poster.png";
 import { Link } from "react-router-dom";
 import { movies } from "../../../services/routesPath.json";
 
-export default function TopRatedList({ filmsData }) {
+export default function TopRatedList({ filmsData, onClick }) {
   return (
     <ul className="best-movies__list">
       {filmsData.map((item) => (
-        <li key={item.id} className="">
+        <li onClick={onClick} key={item.id} className="">
           <Link className="best-movies__item" to={`${movies}/${item.id}`}>
             <div className="best-movies__img-wrapper">
               {item.poster_path ? (
                 <img
+                  alt=""
                   width="350"
                   height="400"
                   className="card__img"

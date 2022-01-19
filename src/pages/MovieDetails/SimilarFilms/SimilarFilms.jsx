@@ -5,7 +5,7 @@ import { tns } from "tiny-slider/src/tiny-slider";
 import "tiny-slider/src/tiny-slider.scss";
 import sliderOptions from "../../../plugins/tiny-slider";
 
-import {movies} from "../../../services/routesPath.json";
+import { movies } from "../../../services/routesPath.json";
 
 export default function SimilarFilms({ similarList, NoImgPoster }) {
   useEffect(() => similarList && tns(sliderOptions), [similarList]);
@@ -34,9 +34,9 @@ export default function SimilarFilms({ similarList, NoImgPoster }) {
                 className="card"
               >
                 <div className="card__img-wrapper">
-                  {console.log(item.id)}
                   {item.poster_path ? (
                     <img
+                      alt={item.original_title}
                       width="350"
                       height="400"
                       className="card__img"

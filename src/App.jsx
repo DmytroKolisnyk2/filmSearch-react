@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import routesPath from "./services/routesPath.json";
 
@@ -9,15 +9,22 @@ import Header from "./components/Header/Header";
 
 import "material-design-icons/iconfont/material-icons.css";
 import "./styles/main.scss";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light-border.css";
+import "tippy.js/animations/shift-away.css";
 
 const App = () => {
+  const [showBar, setShowBar] = useState(false);
+  const toggleShowBar = () => {
+    setShowBar(!showBar);
+  };
   return (
     <>
-      <Aside />
-      <div className="aside__overlay"></div>
+      <Aside onClick={toggleShowBar} showBar={showBar} />
+      <div onClick={toggleShowBar} className="aside__overlay"></div>
 
       <main className="main">
-        <Header />
+        <Header showBar={showBar} toggleShowBar={toggleShowBar} />
 
         <Routes>
           <Route path={routesPath.home} element={<Home />} />

@@ -6,7 +6,7 @@ import TopRatedList from "./TopRatedList/TopRatedList";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import ControlsList from "./ControlsList/ControlsList";
 
-export default function Aside() {
+export default function Aside({ showBar, onClick }) {
   const [error, setError] = useState("");
   const [topRated, setTopRated] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,14 +23,14 @@ export default function Aside() {
   }, []);
 
   return (
-    <aside className="bar">
+    <aside className={showBar ? "bar bar--open" : "bar"}>
       <h2 className="bar__controls-headline bar__headline">Free movie</h2>
       <ControlsList />
 
       <h2 className="bar__movies-headline bar__headline">Top movies</h2>
       {error && <h2 className="bar__error">{error}</h2>}
-      <TopRatedList filmsData={topRated} />
-      {isLoading && <SpinnerLoader/>}
+      <TopRatedList onClick={onClick} filmsData={topRated} />
+      {isLoading && <SpinnerLoader />}
     </aside>
   );
 }

@@ -20,6 +20,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "tiny-slider": "^2.9.4",
+    "tippy.js": "^6.3.7",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

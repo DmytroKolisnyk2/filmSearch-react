@@ -1,6 +1,7 @@
 import React from "react";
+import "./Header.scss";
 
-const Header = () => {
+const Header = ({ toggleShowBar, showBar }) => {
   return (
     <header id="header" className="header">
       <input tabIndex="1" placeholder="Search movie..." className="header__search" type="text" />
@@ -8,7 +9,10 @@ const Header = () => {
       <div className="header__controls-wrapper">
         <span className="material-icons header__settings">settings</span>
 
-        <button className="header__burger">
+        <button
+          onClick={toggleShowBar}
+          className={showBar ? "header__burger header__burger--open" : "header__burger"}
+        >
           <span className="burger__part burger__part--1"></span>
           <span className="burger__part burger__part--2"></span>
           <span className="burger__part burger__part--3"></span>
