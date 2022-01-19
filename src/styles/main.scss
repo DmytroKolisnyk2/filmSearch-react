@@ -1,0 +1,31 @@
+@import "./variables";
+@import "./reset";
+@import "./header";
+@import "./searchResult";
+@import "./settings.scss";
+@import "./startArrow.scss";
+
+#root {
+  background-color: rgb(238, 238, 238);
+  display: flex;
+}
+.main {
+  overflow-y: scroll;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color:var(--main-color);
+  padding: 15px;
+}
+
+main,footer,html,body,header{
+  scroll-behavior: smooth; 
+}
+.title {
+  text-align: center;
+  @extend %roboto-slab;
+  margin-bottom: 20px;
+  color: var(--text-color-dark);
+  font-weight: 600;
+}
