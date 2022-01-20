@@ -4,7 +4,13 @@ import "./Header.scss";
 import { movies } from "../../services/routesPath.json";
 import debounce from "lodash.debounce";
 
-const Header = ({ toggleShowBar, showBar, findMovieInput, setFindMovieInput }) => {
+const Header = ({
+  toggleShowBar,
+  showBar,
+  findMovieInput,
+  setFindMovieInput,
+  setOpenSettings,
+}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,7 +38,9 @@ const Header = ({ toggleShowBar, showBar, findMovieInput, setFindMovieInput }) =
       />
       <i className="material-icons header__icon">send</i>
       <div className="header__controls-wrapper">
-        <span className="material-icons header__settings">settings</span>
+        <span onClick={() => setOpenSettings(true)} className="material-icons header__settings">
+          settings
+        </span>
 
         <button
           onClick={toggleShowBar}

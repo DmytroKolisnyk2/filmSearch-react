@@ -27,7 +27,6 @@ export default function MovieDetails() {
 
     videoRequest(filmId).then(({ data }) => {
       setVideo(data.results[0]?.key);
-    console.log(data);
     });
 
     pageRequest(filmId)

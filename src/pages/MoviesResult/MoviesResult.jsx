@@ -5,53 +5,57 @@ import debounce from "lodash.debounce";
 import SearchResult from "../../components/SearchResult/SearchResult";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
 
-export default function MoviesResult({ inputValue }) {
-  const [requestData, setRequestData] = useState({});
+export default function MoviesResult({ inputValue}) {
+  const [requestData, setRequestData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingBottom, setIsLoadingBottom] = useState(false);
   const [page, setPage] = useState(1);
   const [showBtn, setShowBtn] = useState(false);
 
-  const debouncedRequest = useMemo(
-    () =>
-      debounce(() => {
-        setError("");
-        setShowBtn(false);
-        queryRequest(inputValue, page)
-          .then(({ data }) => {
-            page === 1
-              ? setRequestData(data.results)
-              : setRequestData([...requestData, ...data.results]);
-            setShowBtn(true);
-            data.results.length === 0 && setError("No movies found");
-            setShowBtn(data.results.length === 20);
-            console.log(data.results);
-          })
-          .catch(() => setError("Opps, something went wrong"))
-          .finally(() => {
-            setIsLoading(false);
-            setIsLoadingBottom(false);
-          });
-      }, 1000),
-    [inputValue, page]
-  );
+  const debouncedRequest =
+    // = useMemo(() =>
+    //   debounce(
+    async (pageParam) => {
+      setShowBtn(false);
+      setError("");
+      console.log(inputValue, " : ", pageParam);
+      console.log("pageparam " + pageParam);
+      queryRequest(inputValue, pageParam)
+        .then(({ data }) => {
+          pageParam === 1
+            ? setRequestData(data.results)
+            : setRequestData([...requestData, ...data.results]);
+          data.results.length === 0 && setError("No movies found");
+          setShowBtn(data.results.length === 20);
+        })
+        .catch(() => setError("Opps, something went wrong"))
+        .finally(() => {
+          setIsLoading(false);
+          setIsLoadingBottom(false);
+        });
+    };
+  // , 1000)
+  // , [inputValue, page]);
 
   useEffect(() => {
-    console.log(inputValue);
     if (!inputValue) return;
     setPage(1);
+    setRequestData([]);
     setIsLoading(true);
-    debouncedRequest();
+    debouncedRequest(1);
   }, [inputValue]);
 
   useEffect(() => {
-    console.log(inputValue);
-
-    if (!inputValue) return;
+    if (page === 1 || isLoading) return;
     setIsLoadingBottom(true);
-    const promise = debouncedRequest();
-    console.log(promise);
+    console.log("page useefect");
+    debouncedRequest(page).then(() =>
+      window.scrollBy({
+        top: 1260,
+        behavior: "smooth",
+      })
+    );
   }, [page]);
 
   return (

@@ -9,6 +9,7 @@ import PlayingNow from "./components/PlayingNow/PlayingNow";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
+import Settings from "./components/Settings/Settings";
 
 import "material-design-icons/iconfont/material-icons.css";
 import "./styles/main.scss";
@@ -19,7 +20,8 @@ import "tippy.js/animations/shift-away.css";
 const App = () => {
   const [findMovieInput, setFindMovieInput] = useState("");
   const [showBar, setShowBar] = useState(false);
-  
+  const [openSettings, setOpenSettings] = useState(false);
+
   const toggleShowBar = () => {
     setShowBar(!showBar);
   };
@@ -35,6 +37,7 @@ const App = () => {
           findMovieInput={findMovieInput}
           showBar={showBar}
           toggleShowBar={toggleShowBar}
+          setOpenSettings={setOpenSettings}
         />
 
         <Routes>
@@ -44,6 +47,7 @@ const App = () => {
           <Route path={routesPath.coming} element={<ComingSoon />} />
           <Route path={routesPath.nowPlaying} element={<PlayingNow />} />
         </Routes>
+        {openSettings && <Settings closeSettings={setOpenSettings}/>}
       </main>
     </>
   );
