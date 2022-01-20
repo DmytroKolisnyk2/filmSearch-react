@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import routesPath from "./services/routesPath.json";
 
 import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
 import MoviesResult from "./pages/MoviesResult/MoviesResult";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import PlayingNow from "./components/PlayingNow/PlayingNow";
@@ -46,8 +47,9 @@ const App = () => {
           <Route path={routesPath.movieDetail} element={<MovieDetails />} />
           <Route path={routesPath.coming} element={<ComingSoon />} />
           <Route path={routesPath.nowPlaying} element={<PlayingNow />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-        {openSettings && <Settings closeSettings={setOpenSettings}/>}
+        {openSettings && <Settings closeSettings={setOpenSettings} />}
       </main>
     </>
   );

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { searchCountries, searchLang } from "../../services/movieAPI";
 import { themeStyles } from "../../plugins/changeTheme";
 
+import { addSlimSelect } from "../../plugins/slim-select";
+
 import Modal from "../Modal/Modal";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 
@@ -19,7 +21,10 @@ const Settings = ({ closeSettings }) => {
     const countryResult = await searchCountries()
       .then(({ data }) => setCountriesData(data))
       .catch(() => setError("Opps, something went wrong"));
-    Promise.all([langResult, countryResult]).then(() => setIsLoading(false));
+    Promise.all([langResult, countryResult]).then(() => {
+      setIsLoading(false);
+      addSlimSelect();
+    });
   };
 
   useEffect(() => {
