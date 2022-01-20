@@ -18,7 +18,6 @@ const Settings = ({ closeSettings }) => {
 
     const countryResult = await searchCountries()
       .then(({ data }) => setCountriesData(data))
-
       .catch(() => setError("Opps, something went wrong"));
     Promise.all([langResult, countryResult]).then(() => setIsLoading(false));
   };
@@ -31,8 +30,8 @@ const Settings = ({ closeSettings }) => {
   return (
     <Modal onClick={() => closeSettings(false)}>
       {error && <h2 className="main__error">{error}</h2>}
-      {isLoading && !error ? (
-        <SpinnerLoader />
+      {isLoading || error ? (
+        !error && <SpinnerLoader />
       ) : (
         <section className="settings">
           <h2 className="settings__headline">Settings</h2>
@@ -43,7 +42,9 @@ const Settings = ({ closeSettings }) => {
               </h3>
               <select className="settings__select" name="language" id="language">
                 {languageData.map((item) => (
-                  <option value={item.iso_639_1}>{item.english_name}</option>
+                  <option key={item.iso_639_1} value={item.iso_639_1}>
+                    {item.english_name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -53,7 +54,9 @@ const Settings = ({ closeSettings }) => {
               </h3>
               <select className="settings__select" name="theme" id="theme">
                 {Object.keys(themeStyles).map((item) => (
-                  <option value={item}>{item}</option>
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
             </div>
@@ -64,7 +67,9 @@ const Settings = ({ closeSettings }) => {
           </h3>
           <select className="settings__select settings__select--region" name="region" id="region">
             {countriesData.map((item) => (
-              <option value={item.iso_3166_1}>{item.native_name}</option>
+              <option key={item.iso_3166_1} value={item.iso_3166_1}>
+                {item.native_name}
+              </option>
             ))}
           </select>
         </section>
