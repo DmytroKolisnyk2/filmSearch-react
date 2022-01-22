@@ -3,6 +3,8 @@ import { searchCountries, searchLang } from "../../services/movieAPI";
 import { themeStyles } from "../../plugins/changeTheme";
 
 import { addSlimSelect } from "../../plugins/slim-select";
+import "./Settings.scss";
+
 
 import Modal from "../Modal/Modal";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";

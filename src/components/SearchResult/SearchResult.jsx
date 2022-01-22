@@ -1,6 +1,8 @@
+import "./SearchResult.scss";
+
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import {movies} from '../../services/routesPath.json'
+import { movies } from "../../services/routesPath.json";
 
 import NoImgPoster from "../../images/no-poster.png";
 import addTippy from "../../plugins/tippy";

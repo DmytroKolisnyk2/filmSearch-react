@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./MovieDetails.scss";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { pageRequest, videoRequest, similarRequest } from "../../services/movieAPI";
 
-import SimilarFilms from "./SimilarFilms/SimilarFilms";
-import Video from "./Video/Video";
-import TextInfo from "./TextInfo/TextInfo";
-import MovieBackdrop from "./MovieBackdrop/MovieBackdrop";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
+import GoBackBtn  from "../../components/GoBackBtn/GoBackBtn";
+import MovieBackdrop from "./MovieBackdrop/MovieBackdrop";
+import TextInfo from "./TextInfo/TextInfo";
+import Video from "./Video/Video";
+import SimilarFilms from "./SimilarFilms/SimilarFilms";
 
 import NoImgPoster from "../../images/no-poster.png";
 
@@ -18,6 +19,7 @@ export default function MovieDetails() {
   const [video, setVideo] = useState(null);
   const [similar, setSimilar] = useState(null);
 
+  const navigate = useNavigate();
   const { filmId } = useParams();
 
   useEffect(() => {
@@ -40,9 +42,10 @@ export default function MovieDetails() {
   return (
     <>
       {isLoading && <SpinnerLoader />}
-      {error && <h2 className="main__error">{error}</h2>}
+      {error && <h2 className="main__error">{error}</h2> && navigate("/not-found")}
       {requestData && !isLoading && !error && (
         <>
+          <GoBackBtn />
           <MovieBackdrop requestData={requestData} />
           <TextInfo requestData={requestData} />
           <Video video={video} />

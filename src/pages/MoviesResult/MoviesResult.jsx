@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect} from "react";
 import { queryRequest } from "../../services/movieAPI";
-import debounce from "lodash.debounce";
+// import debounce from "lodash.debounce";
 
 import SearchResult from "../../components/SearchResult/SearchResult";
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
@@ -14,8 +14,6 @@ export default function MoviesResult({ inputValue}) {
   const [showBtn, setShowBtn] = useState(false);
 
   const debouncedRequest =
-    // = useMemo(() =>
-    //   debounce(
     async (pageParam) => {
       setShowBtn(false);
       setError("");
@@ -35,8 +33,6 @@ export default function MoviesResult({ inputValue}) {
           setIsLoadingBottom(false);
         });
     };
-  // , 1000)
-  // , [inputValue, page]);
 
   useEffect(() => {
     if (!inputValue) return;
