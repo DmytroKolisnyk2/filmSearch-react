@@ -77,7 +77,7 @@
     }
     border-color: var(--aside-bg);
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1201px) {
     width: calc(100% - 65px);
   }
 }
@@ -87,7 +87,7 @@
   color: var(--text-grey);
   right: 120px;
   transition: $linear-small;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1201px) {
     right: 76px;
   }
 }
@@ -96,7 +96,7 @@
   justify-content: space-between;
   align-items: center;
   width: 98px;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1201px) {
     width: 52px;
   }
 }
