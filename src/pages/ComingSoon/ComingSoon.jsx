@@ -22,7 +22,7 @@ export default function ComingSoon() {
 
   return (
     <section className="coming-soon">
-      <h2 className="main__healine">Coming soon movies</h2>
+      <h2 className="main__headline">Coming soon movies</h2>
 
       {error && <h2 className="main__error">{error}</h2>}
       {isLoading && <SpinnerLoader />}

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .movie-info {
   padding: 0;
@@ -103,6 +103,9 @@
   &--no-video {
     max-width: 900px;
     margin: 0 auto;
+    & img {
+      border-radius: 10px;
+    }
   }
 }
 .page__icon {

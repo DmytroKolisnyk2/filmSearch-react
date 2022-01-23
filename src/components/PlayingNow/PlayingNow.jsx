@@ -22,7 +22,7 @@ export default function PlayingNow() {
 
   return (
     <section className="coming-soon">
-      <h2 className="main__healine">Playing now movies</h2>
+      <h2 className="main__headline">Playing now movies</h2>
       {error && <h2 className="main__error">{error}</h2>}
       {isLoading && <SpinnerLoader />}
       <SearchResult requestData={requestData} />

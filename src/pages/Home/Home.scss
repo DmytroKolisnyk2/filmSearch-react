@@ -1,0 +1,69 @@
+@import "../../styles/variables.scss";
+
+.home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+.home__img-wrapper {
+  max-width: 390px;
+}
+.home__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  top: 35px;
+  @media screen and (max-width: 833px) {
+    top: 20px;
+  }
+}
+.home__text-wrapper {
+  text-align: center;
+}
+.home__error {
+  font-size: 80px;
+  color: tomato;
+  margin: 10px 0 40px;
+  animation-delay: 2s;
+}
+.home__text {
+  font-size: 22px;
+  margin-bottom: 40px;
+  color: var(--text-color);
+}
+.home__link {
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--main-color);
+  background-color: var(--text-color);
+  transition: $linear-small;
+  width: 184px;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 5px 12px;
+  height: 50px;
+  & span {
+    font-size: 30px;
+  }
+  &:hover {
+    background-color: var(--text-color-dark);
+  }
+  &:active {
+    transform: scale(1.05);
+  }
+}
+.home__link-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 414px;
+}

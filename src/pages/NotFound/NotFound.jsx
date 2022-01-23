@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <section className="not-found">
       <div className="not-found__img-wrapper">
-        <img width="400" src={NotFoundPicture} alt="" className="not-found__img" />
+        <img width="400" src={NotFoundPicture} alt="astronaut on the moon" className="not-found__img" />
       </div>
       <div className="not-found__text-wrapper">
         <h2 className="not-found__error">404</h2>
