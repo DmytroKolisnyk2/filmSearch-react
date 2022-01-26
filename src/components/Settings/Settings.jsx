@@ -5,7 +5,6 @@ import { themeStyles } from "../../plugins/changeTheme";
 import { addSlimSelect } from "../../plugins/slim-select";
 import "./Settings.scss";
 
-
 import Modal from "../Modal/Modal";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 
@@ -25,6 +24,9 @@ const Settings = ({ closeSettings }) => {
       .catch(() => setError("Opps, something went wrong"));
     Promise.all([langResult, countryResult]).then(() => {
       setIsLoading(false);
+      document.querySelector("#language").value = localStorage.getItem("find-film-app_language");
+      document.querySelector("#theme").value = localStorage.getItem("find-film-app_theme");
+      document.querySelector("#region").value = localStorage.getItem("find-film-app_region");
       addSlimSelect();
     });
   };

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { playingNowRequest } from "../../services/movieAPI";
 
-import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
 import SearchResult from "../../components/SearchResult/SearchResult";
 
 export default function PlayingNow() {
@@ -24,8 +23,7 @@ export default function PlayingNow() {
     <section className="coming-soon">
       <h2 className="main__headline">Playing now movies</h2>
       {error && <h2 className="main__error">{error}</h2>}
-      {isLoading && <SpinnerLoader />}
-      <SearchResult requestData={requestData} />
+      <SearchResult isLoading={isLoading} requestData={requestData} />
     </section>
   );
 }

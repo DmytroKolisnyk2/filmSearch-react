@@ -6,14 +6,16 @@ import PropTypes from "prop-types";
 const modalRef = document.querySelector("#root-modal");
 
 export default class Modal extends Component {
-  closeKeydownModal = (event) => event.code === "Escape" && this.props.onClick();
-  closeOverlayModal = (event) => event.target === event.currentTarget && this.props.onClick();
+  closeKeydownModal = (event) =>
+    this.props.onClick && event.code === "Escape" && this.props.onClick();
+  closeOverlayModal = (event) =>
+    this.props.onClick && event.target === event.currentTarget && this.props.onClick();
   componentDidMount() {
-    window.addEventListener("keydown", this.closeKeydownModal);
+    this.props.onClick && window.addEventListener("keydown", this.closeKeydownModal);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("keydown", this.closeKeydownModal);
+    this.props.onClick && window.removeEventListener("keydown", this.closeKeydownModal);
   }
 
   render() {
@@ -27,5 +29,5 @@ export default class Modal extends Component {
 }
 
 Modal.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };

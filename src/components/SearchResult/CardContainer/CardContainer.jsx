@@ -7,7 +7,6 @@ import ContentLoader from "../../../components/ContentLoader/ContentLoader";
 
 export default function CardContainer({ requestData, isLoading }) {
   return (
-    <>
       <div className="search-result__card-container">
         {requestData.length > 0 &&
           requestData.map((item) => (
@@ -71,6 +70,5 @@ export default function CardContainer({ requestData, isLoading }) {
           ))}
         {isLoading && <ContentLoader count={10} />}
       </div>
-    </>
   );
 }
