@@ -13,13 +13,13 @@ export default function TopRatedList({ filmsData, onClick }) {
               {item.poster_path ? (
                 <img
                   alt={item.title}
-                  width="350"
+                  width="100"
                   height="400"
                   className="card__img"
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
                 />
               ) : (
-                <img width="350" height="400" alt="no-poster" className="card__img" src={poster} />
+                <img width="100" height="1500" alt="no-poster" className="card__img" src={poster} />
               )}
             </div>
             <div className="best-movies__text-wrapper">

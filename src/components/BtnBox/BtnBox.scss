@@ -1,0 +1,73 @@
+@import "../../styles/variables.scss";
+
+.card-menu__btn {
+  @extend %roboto-slab;
+  background-color: var(--rating-color);
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  border-radius: 5px;
+  color: var(--aside-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $linear-small;
+  & .material-icons--2 {
+    display: none;
+  }
+  &--liked {
+    color: tomato;
+    background-color: var(--aside-bg);
+    & .material-icons--1 {
+      display: none;
+    }
+    & .material-icons--2 {
+      display: block;
+    }
+  }
+  &--later {
+    color: var(--headline-white);
+    background-color: var(--aside-bg);
+    & .material-icons--1 {
+      display: none;
+    }
+    & .material-icons--2 {
+      display: block;
+    }
+  }
+  &:nth-child(4) {
+    &:hover {
+      color: rgb(86, 241, 255);
+    }
+  }
+  &:nth-child(3) {
+    &:hover {
+      color: tomato;
+    }
+  }
+  &:nth-child(2) {
+    &:hover {
+      color: var(--headline-white);
+    }
+  }
+  &:nth-child(1) {
+    cursor: text;
+
+    &:hover {
+      background-color: var(--rating-color);
+    }
+  }
+}
+.rating-bg__text {
+  height: 40px;
+  padding-top: 7px;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  width: 55px;
+  @extend %roboto-slab;
+  background-color: var(--rating-color);
+  border-radius: 5px;
+  color: var(--aside-bg);
+}

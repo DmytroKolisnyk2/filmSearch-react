@@ -3,8 +3,9 @@ import "./MovieDetails.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import { pageRequest, videoRequest, similarRequest } from "../../services/movieAPI";
 
+
 import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
-import GoBackBtn  from "../../components/GoBackBtn/GoBackBtn";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn";
 import MovieBackdrop from "./MovieBackdrop/MovieBackdrop";
 import TextInfo from "./TextInfo/TextInfo";
 import Video from "./Video/Video";
@@ -12,7 +13,7 @@ import SimilarFilms from "./SimilarFilms/SimilarFilms";
 
 import NoImgPoster from "../../images/no-poster.png";
 
-export default function MovieDetails() {
+function MovieDetails() {
   const [requestData, setRequestData] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -23,15 +24,12 @@ export default function MovieDetails() {
   const { filmId } = useParams();
 
   useEffect(() => {
-      console.log('data');
-
     setIsLoading(true);
 
     similarRequest(filmId).then(({ data }) => data.results.length && setSimilar(data.results));
 
     videoRequest(filmId).then(({ data }) => {
       setVideo(data.results[0]?.key);
-      console.log(data);
     });
 
     pageRequest(filmId)
@@ -49,12 +47,14 @@ export default function MovieDetails() {
       {requestData && !isLoading && !error && (
         <>
           <GoBackBtn />
-          <MovieBackdrop requestData={requestData} />
+          <MovieBackdrop  requestData={requestData} />
           <TextInfo requestData={requestData} />
           <Video video={video} />
-          <SimilarFilms similarList={similar} NoImgPoster={NoImgPoster} />
+          <SimilarFilms similarList={similar} />
         </>
       )}
     </>
   );
 }
+
+export default MovieDetails;

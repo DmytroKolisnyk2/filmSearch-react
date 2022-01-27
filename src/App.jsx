@@ -11,21 +11,28 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light-border.css";
 import "tippy.js/animations/shift-away.css";
 
+// import MoviesResult from "./pages/MoviesResult/MoviesResult";
 import LoaderModal from "./components/LoaderModal/LoaderModal";
-import NotFound from "./pages/NotFound/NotFound";
-import MoviesResult from "./pages/MoviesResult/MoviesResult";
 import Header from "./components/Header/Header";
 
 const Home = lazy(() => import("./pages/Home/Home" /* webpackChunkName: 'Home' */));
+const MoviesResult = lazy(() => import("./pages/MoviesResult/MoviesResult" /* webpackChunkName: 'MoviesResult' */));
 const MovieDetails = lazy(() =>
   import("./pages/MovieDetails/MovieDetails" /* webpackChunkName: 'MovieDetails' */)
 );
 const ComingSoon = lazy(() =>
   import("./pages/ComingSoon/ComingSoon" /* webpackChunkName: 'ComingSoon' */)
 );
-const PlayingNow = lazy(() => import("./pages/PlayingNow/PlayingNow" /* webpackChunkName: 'PlayingNow' */));
+const PlayingNow = lazy(() =>
+  import("./pages/PlayingNow/PlayingNow" /* webpackChunkName: 'PlayingNow' */)
+);
 const Aside = lazy(() => import("./components/Aside/Aside" /* webpackChunkName: 'Aside' */));
-const Settings = lazy(() => import("./components/Settings/Settings" /* webpackChunkName: 'Settings' */));
+const Settings = lazy(() =>
+  import("./components/Settings/Settings" /* webpackChunkName: 'Settings' */)
+);
+const NotFound = lazy(() =>
+  import("./pages/NotFound/NotFound" /* webpackChunkName: 'NotFound' */)
+);
 
 const App = () => {
   const [findMovieInput, setFindMovieInput] = useState("");
@@ -37,7 +44,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("Оновка");
     changeTheme(localStorage.getItem("find-film-app_theme") || "Brown theme");
     changeAxiosLanguage(localStorage.getItem("find-film-app_language") || "en");
     changeAxiosRegion(localStorage.getItem("find-film-app_region") || "US");

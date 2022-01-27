@@ -127,19 +127,7 @@
 .page__icon .material-icons--4 {
   font-size: 40px;
 }
-.rating-bg__text {
-  height: 40px;
-  padding-top: 7px;
-  text-align: center;
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  width: 55px;
-  @extend %roboto-slab;
-  background-color: var(--rating-color);
-  border-radius: 5px;
-  color: var(--aside-bg);
-}
+
 .info__slider-wrapper {
   position: relative;
   margin-bottom: -70px;
@@ -160,9 +148,6 @@
   border-radius: 50%;
   cursor: pointer;
   transition: $linear-small;
-  &:active {
-    // transform: scale(1.01);
-  }
 }
 .info__custom-control li:hover {
   background: #000;

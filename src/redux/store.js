@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { language } from "./language/language-reducers";
+import { likes } from "./likes/likes-reducers";
+import { watchLater } from "./watch-later/watch-later-reducers";
 import {
   persistReducer,
   persistStore,
@@ -15,10 +16,9 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "find-movie-app",
   storage,
-  // blacklist: ["contacts.filter"],
 };
 
-const rootReducer = combineReducers({ language });
+const rootReducer = combineReducers({ likes,watchLater });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

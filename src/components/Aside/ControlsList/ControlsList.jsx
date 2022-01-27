@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { coming, nowPlaying, liked, watchLater } from "../../../services/routesPath.json";
+import { connect } from "react-redux";
 
-export default function ControlsList({ onClick }) {
+function ControlsList({ onClick , likes, watchLaterList }) {
   return (
     <div onClick={onClick} className="controls__list">
       <NavLink
@@ -39,7 +40,7 @@ export default function ControlsList({ onClick }) {
           <i className="material-icons">favorite_border</i>
           Favorite movies
         </span>
-        <span className="controls__counter controls__counter--favorite">10</span>
+        <span className="controls__counter controls__counter--favorite">{likes.length}</span>
       </NavLink>
       <NavLink
         to={watchLater}
@@ -51,8 +52,14 @@ export default function ControlsList({ onClick }) {
           <i className="material-icons">watch_later</i>
           Watch later
         </span>
-        <span className="controls__counter controls__counter--watch-later">15</span>
+        <span className="controls__counter controls__counter--watch-later">{watchLaterList.length}</span>
       </NavLink>
     </div>
   );
 }
+
+const mapStateToProps = ({ likes, watchLater }) => ({
+  likes: likes,
+  watchLaterList: watchLater,
+});
+export default connect(mapStateToProps, null)(ControlsList);

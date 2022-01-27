@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 import NoImgPoster from "../../../images/no-poster.png";
 
 import addTippy from "../../../plugins/tippy";
+import BtnBox from "../../../components/BtnBox/BtnBox";
 
-export default function MovieBackdrop({ requestData }) {
-  useEffect(() => addTippy(),[requestData])
+function MovieBackdrop({ requestData }) {
+  useEffect(() => addTippy(), [requestData]);
+
   return (
     <div className="movie-info">
       <div
@@ -46,32 +48,7 @@ export default function MovieBackdrop({ requestData }) {
               ))}
             </p>
             <div className="page__menu">
-              <span data-tippy-content="Rating" className="rating-bg__text">
-                {requestData.vote_average}
-              </span>
-
-              <button
-                data-tippy-content="Add to watch later"
-                data-action="watch-later"
-                type="button"
-                className="card-menu__btn card-menu__btn--watch-later {#if watchLater} card-menu__btn--later{/if}"
-              >
-                <i className="material-icons material-icons--1 material-icons--3">playlist_add</i>
-                <i className="material-icons material-icons--2 material-icons--4">
-                  playlist_add_check
-                </i>
-              </button>
-              <button
-                data-tippy-content="Like"
-                data-action="like"
-                type="button"
-                className="card-menu__btn card-menu__btn--like {#if liked} card-menu__btn--liked{/if}"
-              >
-                <i className="material-icons material-icons--1 material-icons--3">
-                  favorite_border
-                </i>
-                <i className="material-icons material-icons--2 material-icons--4">favorite</i>
-              </button>
+              <BtnBox rating={requestData.vote_average} id={requestData.id} />
             </div>
           </div>
         </div>
@@ -79,3 +56,5 @@ export default function MovieBackdrop({ requestData }) {
     </div>
   );
 }
+
+export default MovieBackdrop;
