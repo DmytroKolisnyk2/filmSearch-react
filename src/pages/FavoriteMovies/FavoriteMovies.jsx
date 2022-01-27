@@ -11,9 +11,6 @@ function FavoriteMovies({ favoriteMovies }) {
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(
-      favoriteMovies.map((element) => pageRequest(element).then(({ data }) => data))
-    );
     Promise.all(
       favoriteMovies.map((element) =>
         pageRequest(element).then(({ data }) => data)

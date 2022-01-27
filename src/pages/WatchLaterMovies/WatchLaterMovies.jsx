@@ -11,7 +11,6 @@ function WatchLaterMovies({ watchLaterMovies }) {
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(watchLaterMovies.map((element) => pageRequest(element).then(({ data }) => data)));
     Promise.all(watchLaterMovies.map((element) => pageRequest(element).then(({ data }) => data)))
       .then((values) => setRequestData([...values]))
       .catch(() => setError("Opps, something went wrong"))
