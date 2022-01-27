@@ -2,8 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import routesPath from "./services/routesPath.json";
 
-import { changeAxiosRegion, changeAxiosLanguage } from "./services/movieAPI";
-import { changeTheme } from "./plugins/changeTheme";
+import { setLocalStorage } from "./services/setLocalStorage";
 
 import "./styles/main.scss";
 import "material-design-icons/iconfont/material-icons.css";
@@ -52,9 +51,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    changeTheme(localStorage.getItem("find-film-app_theme") || "Brown theme");
-    changeAxiosLanguage(localStorage.getItem("find-film-app_language") || "en");
-    changeAxiosRegion(localStorage.getItem("find-film-app_region") || "US");
+    setLocalStorage();
   }, []);
 
   return (
