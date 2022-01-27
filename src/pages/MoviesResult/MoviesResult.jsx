@@ -47,7 +47,7 @@ export default function MoviesResult({ inputValue }) {
 
   return (
     <>
-      {requestData.length === 0&&!isLoading && !error && <MovieResultContent />}
+      {requestData.length === 0 && !isLoading && !error && <MovieResultContent />}
       <section className="page-result">
         {error ? (
           <h2 className="main__error">{error}</h2>

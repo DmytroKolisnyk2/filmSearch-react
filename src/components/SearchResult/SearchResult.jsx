@@ -10,7 +10,9 @@ export default function SearchResult({ requestData, isLoading }) {
 
   return (
     <>
-      {!isLoading && <GoBackBtn additionalClass="search-result__back-btn" />}
+      {!isLoading && requestData.length > 0 && (
+        <GoBackBtn additionalClass="search-result__back-btn" />
+      )}
       <CardContainer isLoading={isLoading} requestData={requestData} />
     </>
   );

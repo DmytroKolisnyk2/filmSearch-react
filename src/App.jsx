@@ -16,7 +16,9 @@ import LoaderModal from "./components/LoaderModal/LoaderModal";
 import Header from "./components/Header/Header";
 
 const Home = lazy(() => import("./pages/Home/Home" /* webpackChunkName: 'Home' */));
-const MoviesResult = lazy(() => import("./pages/MoviesResult/MoviesResult" /* webpackChunkName: 'MoviesResult' */));
+const MoviesResult = lazy(() =>
+  import("./pages/MoviesResult/MoviesResult" /* webpackChunkName: 'MoviesResult' */)
+);
 const MovieDetails = lazy(() =>
   import("./pages/MovieDetails/MovieDetails" /* webpackChunkName: 'MovieDetails' */)
 );
@@ -32,6 +34,12 @@ const Settings = lazy(() =>
 );
 const NotFound = lazy(() =>
   import("./pages/NotFound/NotFound" /* webpackChunkName: 'NotFound' */)
+);
+const FavoriteMovies = lazy(() =>
+  import("./pages/FavoriteMovies/FavoriteMovies" /* webpackChunkName: 'FavoriteMovies' */)
+);
+const WatchLaterMovies = lazy(() =>
+  import("./pages/WatchLaterMovies/WatchLaterMovies" /* webpackChunkName: 'WatchLaterMovies' */)
 );
 
 const App = () => {
@@ -72,6 +80,8 @@ const App = () => {
             <Route path={routesPath.movieDetail} element={<MovieDetails />} />
             <Route path={routesPath.coming} element={<ComingSoon />} />
             <Route path={routesPath.nowPlaying} element={<PlayingNow />} />
+            <Route path={routesPath.liked} element={<FavoriteMovies />} />
+            <Route path={routesPath.watchLater} element={<WatchLaterMovies />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           {openSettings && <Settings closeSettings={setOpenSettings} />}

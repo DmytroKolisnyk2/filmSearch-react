@@ -6,7 +6,7 @@ import Card from "../../../components/Card/Card";
 import sliderOptions from "../../../plugins/tiny-slider";
 
 
-export default function SimilarFilms({ similarList, NoImgPoster }) {
+export default function SimilarFilms({ similarList}) {
   useEffect(() => similarList && tns(sliderOptions), [similarList]);
   return (
     similarList && (

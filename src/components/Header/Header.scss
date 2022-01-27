@@ -59,7 +59,7 @@
   }
 }
 .header__search {
-  width: calc(100% - 110px);
+  width: calc(100% - 90px);
   height: 40px;
   padding: 8px;
   padding-right: 35px;
@@ -78,17 +78,17 @@
     border-color: var(--aside-bg);
   }
   @media screen and (min-width: 1201px) {
-    width: calc(100% - 65px);
+    width: calc(100% - 45px);
   }
 }
 .header__icon {
   font-size: 30px;
   position: absolute;
   color: var(--text-grey);
-  right: 120px;
+  right: 107px;
   transition: $linear-small;
   @media screen and (min-width: 1201px) {
-    right: 76px;
+    right: 60px;
   }
 }
 .header__controls-wrapper {

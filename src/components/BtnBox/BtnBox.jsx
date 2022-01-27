@@ -3,10 +3,12 @@ import "./BtnBox.scss";
 import { connect } from "react-redux";
 import { addLike, deleteLike } from "../../redux/likes/likes-actions";
 import { addWatchLater, deleteWatchLater } from "../../redux/watch-later/watch-later-actions";
+import PropTypes from "prop-types";
 
 function BtnBox({
   id,
   rating,
+  enableInfo,
   likes,
   addLike,
   deleteLike,
@@ -52,6 +54,11 @@ function BtnBox({
         <i className="material-icons material-icons--1 material-icons--3">favorite_border</i>
         <i className="material-icons material-icons--2 material-icons--4">favorite</i>
       </button>
+      {enableInfo && (
+        <button data-tippy-content="Info" type="button" className="card-menu__btn">
+          <i className="material-icons">info</i>
+        </button>
+      )}
     </>
   );
 }
@@ -69,3 +76,15 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BtnBox);
+
+BtnBox.propTypes = {
+  id: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+  enableInfo: PropTypes.bool,
+  likes: PropTypes.array.isRequired,
+  watchLater: PropTypes.array.isRequired,
+  addLike: PropTypes.func.isRequired,
+  deleteLike: PropTypes.func.isRequired,
+  deleteWatchLater: PropTypes.func.isRequired,
+  addWatchLater: PropTypes.func.isRequired,
+};
