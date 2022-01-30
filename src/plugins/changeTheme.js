@@ -23,6 +23,7 @@ export const themeStyles = {
     "--gear-inner": "#333333",
     "--text-color-dark": "#acacac",
     "--text-color": "#dcdcdc",
+    "--loader-color": "#dcdcdc",
   },
   "Blue theme": {
     "--headline-white": "#FEFFF1",
@@ -48,7 +49,7 @@ export const themeStyles = {
     "--gear-bg": "#fff",
     "--text-color-dark": "#0ff",
     "--text-color": "#0cc",
-    "--loader-color": "grey",
+    "--loader-color": "#0cc",
   },
   "Uran theme": {
     "--headline-white": "#fff",
@@ -60,7 +61,7 @@ export const themeStyles = {
     "--gear-inner": "#000",
     "--gear-bg": "#fff",
     "--text-color-dark": "#0f0",
-    "--loader-color": "grey",
+    "--loader-color": "#0c0",
     "--text-color": "#0c0",
   },
   "Casual theme": {
@@ -73,7 +74,7 @@ export const themeStyles = {
     "--gear-bg": "#4c4145",
     "--text-color-dark": "#3a2f33",
     "--text-color": "#4c4145",
-    "--loader-color": "grey",
+    "--loader-color": "#4c4145",
     "--gear-inner": "#FEFFF1",
   },
   "Green theme": {
@@ -86,7 +87,7 @@ export const themeStyles = {
     "--gear-inner": "#FEFFF1",
     "--gear-bg": "#6e9a44",
     "--text-color-dark": "#3a2f33",
-    "--loader-color": "grey",
+    "--loader-color": "#4c4145",
     "--text-color": "#4c4145",
   },
   "Pink theme": {
@@ -99,7 +100,7 @@ export const themeStyles = {
     "--gear-inner": "#FEFFF1",
     "--gear-bg": "#715f65",
     "--text-color-dark": "#3a2f33",
-    "--loader-color": "grey",
+    "--loader-color": "#4c4145",
     "--text-color": "#4c4145",
   },
   "Yellow theme": {
@@ -112,7 +113,7 @@ export const themeStyles = {
     "--gear-inner": "#ddce6e",
     "--gear-bg": "#272933",
     "--text-color-dark": "#272933",
-    "--loader-color": "grey",
+    "--loader-color": "#676778",
     "--text-color": "#676778",
   },
 };

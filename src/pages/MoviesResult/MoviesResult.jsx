@@ -4,6 +4,7 @@ import { queryRequest } from "../../services/movieAPI";
 
 import MovieResultContent from "./MovieResultContent/MovieResultContent";
 import SearchResult from "../../components/SearchResult/SearchResult";
+// import debounce from "lodash.debounce";
 
 export default function MoviesResult({ inputValue }) {
   const [requestData, setRequestData] = useState([]);
@@ -11,22 +12,6 @@ export default function MoviesResult({ inputValue }) {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [showBtn, setShowBtn] = useState(false);
-
-  const debouncedRequest = async (pageParam) => {
-    setShowBtn(false);
-    setIsLoading(true);
-    setError("");
-    queryRequest(inputValue, pageParam)
-      .then(({ data }) => {
-        pageParam === 1
-          ? setRequestData(data.results)
-          : setRequestData([...requestData, ...data.results]);
-        data.results.length === 0 && setError("No movies found");
-        setShowBtn(data.results.length === 20);
-      })
-      .catch(() => setError("Opps, something went wrong"))
-      .finally(() => setIsLoading(false));
-  };
 
   useEffect(() => {
     if (!inputValue) return;
@@ -44,6 +29,22 @@ export default function MoviesResult({ inputValue }) {
       })
     );
   }, [page]);
+
+  const debouncedRequest = async (pageParam) => {
+    setShowBtn(false);
+    setIsLoading(true);
+    setError("");
+    queryRequest(inputValue, pageParam)
+      .then(({ data }) => {
+        pageParam === 1
+          ? setRequestData(data.results)
+          : setRequestData([...requestData, ...data.results]);
+        data.results.length === 0 && setError("No movies found");
+        setShowBtn(data.results.length === 20);
+      })
+      .catch(() => setError("Opps, something went wrong"))
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <>

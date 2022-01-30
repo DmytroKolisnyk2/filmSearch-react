@@ -1,13 +1,17 @@
 @import "../../styles/variables.scss";
 
 .home {
+  margin: auto;
+  text-align: center;
+}
+.home__content-wrapper {
+  max-width: 1100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1100px;
   width: 100%;
-  margin: auto;
+  margin: 0 auto 45px;
 }
 .home__img-wrapper {
   max-width: 390px;
@@ -29,12 +33,16 @@
   font-size: 80px;
   color: tomato;
   margin: 10px 0 40px;
-  animation-delay: 2s;
+  @media screen and (max-width: 458px) {
+    font-size: 50px;
+  }
 }
 .home__text {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 40px;
   color: var(--text-color);
+  text-align: center;
+  font-weight: 500;
 }
 .home__link {
   font-size: 20px;
@@ -53,6 +61,15 @@
   & span {
     font-size: 30px;
   }
+  @media screen and (max-width: 458px) {
+    width: 145px;
+    font-size: 17px;
+    padding: 4px 8px;
+    height: 45px;
+    & span {
+      font-size: 25px;
+    }
+  }
   &:hover {
     background-color: var(--text-color-dark);
   }
@@ -66,4 +83,18 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 414px;
+}
+.home__trending {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  text-align: center;
+  font-weight: 500;
+}
+.trending {
+  width: fit-content;
+    max-width: calc(100vw -$bar-width -30px);
+  @media screen and (max-width: 1200px) {
+    max-width: calc(100vw - 30px);
+  }
 }

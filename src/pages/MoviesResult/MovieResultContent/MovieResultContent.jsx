@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieResultContent.scss";
 import movieResultImg from "../../../images/search-movies.png";
-import GoBackBtn from "../../../components/GoBackBtn/GoBackBtn";
+// import GoBackBtn from "../../../components/GoBackBtn/GoBackBtn";
 
 const MovieResultContent = () => {
   return (

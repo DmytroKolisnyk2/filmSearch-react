@@ -11,8 +11,6 @@ import TextInfo from "./TextInfo/TextInfo";
 import Video from "./Video/Video";
 import SimilarFilms from "./SimilarFilms/SimilarFilms";
 
-import NoImgPoster from "../../images/no-poster.png";
-
 function MovieDetails() {
   const [requestData, setRequestData] = useState(null);
   const [error, setError] = useState("");

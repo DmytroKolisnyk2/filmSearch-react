@@ -28,8 +28,14 @@ export default function Card({ enableBtn, item, imgWidth }) {
         <div data-tippy-content="Country" className="card__lang">
           {item.original_language}
         </div>
-        {enableBtn && <div className="card__menu"><BtnBox enableInfo id={item.id} rating={item.vote_average} /></div>}
-        <h2 className="card__headline">{item.title}</h2>
+        {enableBtn && (
+          <div className="card__menu">
+            <BtnBox enableInfo id={item.id} rating={item.vote_average} />
+          </div>
+        )}
+        <h2 className={enableBtn ? "card__headline" : "card__headline card__headline--small"}>
+          {item.title}
+        </h2>
       </div>
     </Link>
   );

@@ -1,0 +1,36 @@
+@import "../../styles//variables.scss";
+
+.info__slider-wrapper {
+  position: relative;
+  // margin-bottom: -70px;
+  width: 100%;
+}
+.info__custom-control {
+  list-style: none;
+}
+.info__custom-control li {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  line-height: 0;
+  text-align: center;
+  transform: translateY(-50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 13px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $linear-small;
+}
+.info__custom-control li:hover {
+  background: #000;
+}
+.info__custom-control .prev {
+  left: 20px;
+}
+.info__custom-control .next {
+  right: 20px;
+}
+.info__slider .card {
+  margin-right: 15px;
+}
