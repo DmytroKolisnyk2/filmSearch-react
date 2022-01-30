@@ -41,7 +41,7 @@ function ControlsList({ onClick, likes, watchLaterList }) {
           >
             <span className="controls__link">
               <i className="material-icons">home</i>
-              Home
+              Sweet home
             </span>
             <span className="controls__counter">^_^</span>
           </NavLink>

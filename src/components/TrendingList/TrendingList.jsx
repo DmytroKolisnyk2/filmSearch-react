@@ -3,8 +3,9 @@ import "./TrendingList.scss";
 import { searchTrending } from "../../services/movieAPI";
 import Slider from "../Slider/Slider";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
+import SearchResult from "../SearchResult/SearchResult";
 
-export default function TrendingList({ headline }) {
+export default function TrendingList({ headline, list }) {
   const [requestData, setRequestData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,15 @@ export default function TrendingList({ headline }) {
         <>
           <h2 className="home__trending">{headline}</h2>
           {isLoading && <SpinnerLoader />}
-          {requestData.length > 0 && <Slider filmsList={requestData} />}
+          {requestData.length > 0 && (
+            <>
+              {list ? (
+                <SearchResult requestData={requestData} />
+              ) : (
+                <Slider filmsList={requestData} />
+              )}
+            </>
+          )}
         </>
       )}
     </section>

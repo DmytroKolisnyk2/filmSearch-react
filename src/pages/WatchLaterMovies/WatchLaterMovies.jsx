@@ -24,7 +24,7 @@ function WatchLaterMovies({ watchLaterMovies }) {
       {watchLaterMovies.length === 0 && (
         <>
           <h2 className="main__error">Hmm, it looks like you have watched all the films</h2>
-          <TrendingList headline="But what about this films?" />
+          <TrendingList list headline="But what about this films?" />
         </>
       )}
       {error ? (

@@ -24,7 +24,7 @@ function FavoriteMovies({ favoriteMovies }) {
       {favoriteMovies.length === 0 && (
         <>
           <h2 className="main__error">Hmm, it looks like you haven't liked anything yet</h2>
-          <TrendingList headline="But what about this films?" />
+          <TrendingList list headline="But what about this films?" />
         </>
       )}
       {error ? (
