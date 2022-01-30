@@ -84,17 +84,3 @@
   flex-wrap: wrap;
   max-width: 414px;
 }
-.home__trending {
-  font-size: 24px;
-  margin-bottom: 40px;
-  color: var(--text-color);
-  text-align: center;
-  font-weight: 500;
-}
-.trending {
-  width: fit-content;
-    max-width: calc(100vw -$bar-width -30px);
-  @media screen and (max-width: 1200px) {
-    max-width: calc(100vw - 30px);
-  }
-}

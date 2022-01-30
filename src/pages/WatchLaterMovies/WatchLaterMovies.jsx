@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./WatchLaterNovies.scss";
 import { pageRequest } from "../../services/movieAPI";
 import SearchResult from "../../components/SearchResult/SearchResult";
+import TrendingList from "../../components/TrendingList/TrendingList";
 
 function WatchLaterMovies({ watchLaterMovies }) {
   const [requestData, setRequestData] = useState({});
@@ -20,6 +21,12 @@ function WatchLaterMovies({ watchLaterMovies }) {
   return (
     <section className="favorite">
       <h2 className="main__headline">Watch later movies</h2>
+      {watchLaterMovies.length === 0 && (
+        <>
+          <h2 className="main__error">Hmm, it looks like you have watched all the films</h2>
+          <TrendingList headline="But what about this films?" />
+        </>
+      )}
       {error ? (
         <h2 className="main__error">{error}</h2>
       ) : (

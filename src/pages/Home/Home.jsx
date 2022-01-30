@@ -8,7 +8,7 @@ import TrendingList from "../../components/TrendingList/TrendingList";
 const Home = () => {
   return (
     <section className="home">
-     <div className="home__content-wrapper">
+      <div className="home__content-wrapper">
         <div className="home__img-wrapper">
           <img width="512" src={HomeAstronaut} alt="astronaut is looking" className="home__img" />
         </div>
@@ -30,8 +30,8 @@ const Home = () => {
             </Link>
           </div>
         </div>
-     </div>
-      <TrendingList />
+      </div>
+      <TrendingList headline="Hmmm, maybe you have been finding this movies for ages:" />
     </section>
   );
 };

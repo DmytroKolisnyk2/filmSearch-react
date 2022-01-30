@@ -14,7 +14,7 @@ export default function MoviesResult({ inputValue }) {
   const [showBtn, setShowBtn] = useState(false);
 
   useEffect(() => {
-    if (!inputValue) return;
+    if (!inputValue.trim()) return;
     setPage(1);
     setRequestData([]);
     debouncedRequest(1);
@@ -23,8 +23,8 @@ export default function MoviesResult({ inputValue }) {
   useEffect(() => {
     if (page === 1 || isLoading) return;
     debouncedRequest(page).then(() =>
-      window.scrollBy({
-        top: 1260,
+      document.querySelector(".main").scrollBy({
+        top: 560,
         behavior: "smooth",
       })
     );

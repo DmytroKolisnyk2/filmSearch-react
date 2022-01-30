@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./FavoriteMovies.scss";
 import { pageRequest } from "../../services/movieAPI";
 import SearchResult from "../../components/SearchResult/SearchResult";
+import TrendingList from "../../components/TrendingList/TrendingList";
 
 function FavoriteMovies({ favoriteMovies }) {
   const [requestData, setRequestData] = useState({});
@@ -11,11 +12,7 @@ function FavoriteMovies({ favoriteMovies }) {
 
   useEffect(() => {
     setIsLoading(true);
-    Promise.all(
-      favoriteMovies.map((element) =>
-        pageRequest(element).then(({ data }) => data)
-      )
-    )
+    Promise.all(favoriteMovies.map((element) => pageRequest(element).then(({ data }) => data)))
       .then((values) => setRequestData([...values]))
       .catch(() => setError("Opps, something went wrong"))
       .finally(() => setIsLoading(false));
@@ -24,6 +21,12 @@ function FavoriteMovies({ favoriteMovies }) {
   return (
     <section className="favorite">
       <h2 className="main__headline">Favorite movies</h2>
+      {favoriteMovies.length === 0 && (
+        <>
+          <h2 className="main__error">Hmm, it looks like you haven't liked anything yet</h2>
+          <TrendingList headline="But what about this films?" />
+        </>
+      )}
       {error ? (
         <h2 className="main__error">{error}</h2>
       ) : (

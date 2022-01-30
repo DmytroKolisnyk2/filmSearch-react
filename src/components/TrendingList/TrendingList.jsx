@@ -4,7 +4,7 @@ import { searchTrending } from "../../services/movieAPI";
 import Slider from "../Slider/Slider";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 
-export default function TrendingList() {
+export default function TrendingList({ headline }) {
   const [requestData, setRequestData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +26,7 @@ export default function TrendingList() {
         <h2 className="main__error">{error}</h2>
       ) : (
         <>
-          <h2 className="home__trending">Hmmm, maybe you have been finding this movies for ages:</h2>
+          <h2 className="home__trending">{headline}</h2>
           {isLoading && <SpinnerLoader />}
           {requestData.length > 0 && <Slider filmsList={requestData} />}
         </>

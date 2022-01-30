@@ -10,9 +10,9 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light-border.css";
 import "tippy.js/animations/shift-away.css";
 
-// import MoviesResult from "./pages/MoviesResult/MoviesResult";
 import LoaderModal from "./components/LoaderModal/LoaderModal";
 import Header from "./components/Header/Header";
+import ScrollTopArrow from "./components/ScrollTopArrow/ScrollTopArrow";
 
 const Home = lazy(() => import("./pages/Home/Home" /* webpackChunkName: 'Home' */));
 const MoviesResult = lazy(() =>
@@ -83,6 +83,7 @@ const App = () => {
           </Routes>
           {openSettings && <Settings closeSettings={setOpenSettings} />}
         </main>
+        <ScrollTopArrow bgColor="var(--aside-bg)" color="var(--headline-white)" />
       </Suspense>
     </>
   );

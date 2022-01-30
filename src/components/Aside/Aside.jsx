@@ -24,7 +24,7 @@ export default function Aside({ showBar, onClick }) {
 
   return (
     <aside className={showBar ? "bar bar--open" : "bar"}>
-      <h2 className="bar__controls-headline bar__headline">Free movie</h2>
+      <h2 className="bar__controls-headline bar__headline">Find any movie</h2>
       <ControlsList onClick={onClick} />
 
       <h2 className="bar__movies-headline bar__headline">Top movies</h2>

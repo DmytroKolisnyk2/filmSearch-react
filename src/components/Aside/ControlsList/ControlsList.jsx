@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { coming, nowPlaying, liked, watchLater } from "../../../services/routesPath.json";
+import { home, coming, nowPlaying, liked, watchLater } from "../../../services/routesPath.json";
 import { connect } from "react-redux";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { playingNowRequest, upcomingRequest } from "../../../services/movieAPI";
@@ -33,6 +33,18 @@ function ControlsList({ onClick, likes, watchLaterList }) {
         <SpinnerLoader />
       ) : (
         <>
+          <NavLink
+            to={home}
+            className={({ isActive }) =>
+              isActive ? "controls__item controls__item--active" : "controls__item"
+            }
+          >
+            <span className="controls__link">
+              <i className="material-icons">home</i>
+              Home
+            </span>
+            <span className="controls__counter">^_^</span>
+          </NavLink>
           <NavLink
             to={nowPlaying}
             className={({ isActive }) =>
