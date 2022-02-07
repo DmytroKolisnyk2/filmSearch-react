@@ -4,6 +4,8 @@ import { home, coming, nowPlaying, liked, watchLater } from "../../../services/r
 import { connect } from "react-redux";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { playingNowRequest, upcomingRequest } from "../../../services/movieAPI";
+import { getLiked } from "../../../redux/likes/likes-selectors";
+import { getWatchLater } from "../../../redux/watch-later/watch-later-selectors";
 
 function ControlsList({ onClick, likes, watchLaterList }) {
   const [playingNowData, setPlayingNowData] = useState([]);
@@ -101,8 +103,8 @@ function ControlsList({ onClick, likes, watchLaterList }) {
   );
 }
 
-const mapStateToProps = ({ likes, watchLater }) => ({
-  likes: likes,
-  watchLaterList: watchLater,
+const mapStateToProps = (state) => ({
+  likes: getLiked(state),
+  watchLaterList: getWatchLater(state),
 });
 export default connect(mapStateToProps, null)(ControlsList);

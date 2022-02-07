@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { addLike, deleteLike } from "../../redux/likes/likes-actions";
 import { addWatchLater, deleteWatchLater } from "../../redux/watch-later/watch-later-actions";
 import PropTypes from "prop-types";
+import { getLiked } from "../../redux/likes/likes-selectors";
+import { getWatchLater } from "../../redux/watch-later/watch-later-selectors";
 
 function BtnBox({
   id,
@@ -63,9 +65,9 @@ function BtnBox({
   );
 }
 
-const mapStateToProps = ({ likes, watchLater }) => ({
-  likes: likes,
-  watchLater: watchLater,
+const mapStateToProps = (state) => ({
+  likes: getLiked(state),
+  watchLater: getWatchLater(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

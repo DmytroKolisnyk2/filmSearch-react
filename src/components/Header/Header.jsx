@@ -13,16 +13,18 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
 
+  const debouncedNavigate = useMemo(() => debounce(() => navigate(movies), 500), [navigate]);
+
   useEffect(() => {
     return () => {
       debouncedNavigate.cancel();
     };
-  }, []);
+  }, [debouncedNavigate]);
 
-  const debouncedNavigate = useMemo(() => debounce(() => navigate(movies), 500), [navigate]);
 
   const updateInput = ({ target }) => {
     setFindMovieInput(target.value);
+    console.log('object');
     debouncedNavigate();
   };
 

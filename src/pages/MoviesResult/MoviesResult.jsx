@@ -13,6 +13,22 @@ export default function MoviesResult({ inputValue }) {
   const [page, setPage] = useState(1);
   const [showBtn, setShowBtn] = useState(false);
 
+  const debouncedRequest = async (pageParam) => {
+    setShowBtn(false);
+    setIsLoading(true);
+    setError("");
+    queryRequest(inputValue, pageParam)
+      .then(({ data }) => {
+        pageParam === 1
+          ? setRequestData(data.results)
+          : setRequestData([...requestData, ...data.results]);
+        data.results.length === 0 && setError("No movies found");
+        setShowBtn(data.results.length === 20);
+      })
+      .catch(() => setError("Opps, something went wrong"))
+      .finally(() => setIsLoading(false));
+  };
+
   useEffect(() => {
     if (!inputValue.trim()) return;
     setPage(1);
@@ -29,22 +45,6 @@ export default function MoviesResult({ inputValue }) {
       })
     );
   }, [page]);
-
-  const debouncedRequest = async (pageParam) => {
-    setShowBtn(false);
-    setIsLoading(true);
-    setError("");
-    queryRequest(inputValue, pageParam)
-      .then(({ data }) => {
-        pageParam === 1
-          ? setRequestData(data.results)
-          : setRequestData([...requestData, ...data.results]);
-        data.results.length === 0 && setError("No movies found");
-        setShowBtn(data.results.length === 20);
-      })
-      .catch(() => setError("Opps, something went wrong"))
-      .finally(() => setIsLoading(false));
-  };
 
   return (
     <>

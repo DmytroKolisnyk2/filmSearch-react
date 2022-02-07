@@ -4,6 +4,7 @@ import "./FavoriteMovies.scss";
 import { pageRequest } from "../../services/movieAPI";
 import SearchResult from "../../components/SearchResult/SearchResult";
 import TrendingList from "../../components/TrendingList/TrendingList";
+import { getLiked } from "../../redux/likes/likes-selectors";
 
 function FavoriteMovies({ favoriteMovies }) {
   const [requestData, setRequestData] = useState({});
@@ -36,8 +37,8 @@ function FavoriteMovies({ favoriteMovies }) {
   );
 }
 
-const mapStateToProps = ({ likes }) => ({
-  favoriteMovies: likes,
+const mapStateToProps = (state) => ({
+  favoriteMovies: getLiked(state),
 });
 
 export default connect(mapStateToProps, null)(FavoriteMovies);

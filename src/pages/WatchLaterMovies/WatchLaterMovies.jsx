@@ -4,6 +4,7 @@ import "./WatchLaterNovies.scss";
 import { pageRequest } from "../../services/movieAPI";
 import SearchResult from "../../components/SearchResult/SearchResult";
 import TrendingList from "../../components/TrendingList/TrendingList";
+import { getWatchLater } from "../../redux/watch-later/watch-later-selectors";
 
 function WatchLaterMovies({ watchLaterMovies }) {
   const [requestData, setRequestData] = useState({});
@@ -36,8 +37,8 @@ function WatchLaterMovies({ watchLaterMovies }) {
   );
 }
 
-const mapStateToProps = ({ watchLater }) => ({
-  watchLaterMovies: watchLater,
+const mapStateToProps = (state) => ({
+  watchLaterMovies: getWatchLater(state),
 });
 
 export default connect(mapStateToProps, null)(WatchLaterMovies);
